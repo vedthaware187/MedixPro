@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bed Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .bed-status {
+            margin-top: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .floor-selector {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .bed {
+            width: 160px;
+            height: 120px;
+            background-color: #ccc;
+            border: 1px solid #888;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #333;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .bed:hover {
+            background-color: #e0e0e0;
+        }
+        .bed-details {
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .bed-details p {
+            margin: 5px 0;
+        }
+        .available { background-color: #5cb85c; }
+        .occupied { background-color: #d9534f; }
+        .maintenance { background-color: #f0ad4e; }
+    </style>
+</head>
+<body>
+    <h1>Bed Status</h1>
+    <div class="floor-selector">
+        <label for="floor">Select Floor:</label>
+        <select id="floor">
+            <option value="1">1st Floor</option>
+        </select>
+    </div>
+
+    <div class="bed-status" id="bedStatus"></div>
+
+    <script>
+        // Initialize bed status data
+        var bedStatusData = {};
+
+        // Function to load bed status data from local storage
+        function loadBedStatusData() {
+            var data = localStorage.getItem('bedStatusData');
+            if (data) {
+                bedStatusData = JSON.parse(data);
+            } else {
+                // Initialize bed status data for the first floor if not found in local storage
+                bedStatusData['1'] = {};
+            }
+        }
+
+        // Function to save bed status data to local storage
+        function saveBedStatusData() {
+            localStorage.setItem('bedStatusData', JSON.stringify(bedStatusData));
+        }
+
+        // Generate bed boxes for the first floor
+        function generateBedBoxes(floor) {
+            var bedsContainer = document.getElementById('bedStatus');
+            bedsContainer.innerHTML = '';
+
+            var beds = bedStatusData[floor];
+            for (var i = 1; i <= 16; i++) { // Increased to 16 beds per floor
+                var bedId = 'bed-' + floor + '-' + i;
+                var status = beds && beds[i] ? beds[i].status : 'Available';
+                var bedClass = status.toLowerCase();
+
+                var bedBox = document.createElement('div');
+                bedBox.id = bedId;
+                bedBox.className = 'bed ' + bedClass;
+                bedBox.setAttribute('data-status', status);
+                bedBox.setAttribute('onclick', 'updateBedStatus("' + bedId + '")');
+                bedBox.innerText = bedId; // Displaying only bed number
+
+                bedsContainer.appendChild(bedBox);
+            }
+        }
+
+        // Update bed status
+        function updateBedStatus(bedId) {
+            var bedBox = document.getElementById(bedId);
+            var currentStatus = bedBox.getAttribute('data-status');
+            var newStatus = getNextStatus(currentStatus);
+            bedBox.className = 'bed ' + newStatus.toLowerCase();
+            bedBox.setAttribute('data-status', newStatus);
+
+            // Update status in bedStatusData object
+            var idParts = bedId.split('-');
+            var floor = idParts[1];
+            var bedNumber = idParts[2];
+            bedStatusData[floor][bedNumber] = { status: newStatus };
+
+            // Save updated data to local storage
+            saveBedStatusData();
+        }
+
+        // Get next status
+        function getNextStatus(currentStatus) {
+            switch (currentStatus) {
+                case 'Available':
+                    return 'Occupied';
+                case 'Occupied':
+                    return 'Under Maintenance';
+                case 'Under Maintenance':
+                    return 'Available';
+                default:
+                    return 'Available';
+            }
+        }
+
+        // Load bed status data when the page loads
+        loadBedStatusData();
+        generateBedBoxes('1');
+
+        // Event listener for floor selection change
+        document.getElementById('floor').addEventListener('change', function() {
+            var floor = this.value;
+            generateBedBoxes(floor);
+        });
+    </script>
+</body>
+</html>

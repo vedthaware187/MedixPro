@@ -1,0 +1,124 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .main {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Medical information section */
+  .medical-info {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .medical-info h2 {
+    color: #333;
+  }
+  
+  .medical-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .medical-info li {
+    margin-bottom: 10px;
+  }
+  
+  /* Diagnosis section */
+  .diagnosis {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .diagnosis h2 {
+    color: #333;
+  }
+  
+  .diagnosis p {
+    color: #666;
+  }
+  
+  /* Treatment plan section */
+  .treatment-plan {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .treatment-plan h2 {
+    color: #333;
+  }
+  
+  .treatment-plan p {
+    color: #666;
+  }
+  
+  /* Medical advertisement section */
+  .medical-ad {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .medical-ad h2 {
+    color: #333;
+  }
+  
+  .medical-ad p {
+    color: #666;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  

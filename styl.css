@@ -1,0 +1,99 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  .main {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Navigation styles */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Feature section styles */
+  .features {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .feature {
+    width: calc(33.33% - 20px);
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .feature img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .feature h2 {
+    color: #333;
+  }
+  
+  .feature p {
+    color: #666;
+  }
+  
+  /* Call to action section styles */
+  .cta {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .cta h2 {
+    color: #333;
+  }
+  
+  .cta button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Footer styles */
+  footer p {
+    margin: 0;
+    text-align: center;
+  }
+  

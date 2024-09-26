@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #001df8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .total-row td {
+            border-top: 2px solid #000;
+            font-weight: bold;
+        }
+        #printButton {
+            margin-top: 20px;
+            text-align: center;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #billContainer, #billContainer * {
+                visibility: visible;
+            }
+            #billContainer {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="billContainer">
+        <h1>Generate Bill</h1>
+        <form id="billForm">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" name="itemName" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <label for="pricePerUnit">Price per Unit (INR):</label>
+            <input type="number" id="pricePerUnit" name="pricePerUnit" min="0" required>
+
+            <button type="button" onclick="addItem()">Add Item</button>
+        </form>
+
+        <table id="billTable">
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price per Unit (INR)</th>
+                <th>Total (INR)</th>
+            </tr>
+        </table>
+
+        <div id="totalAmount"></div>
+
+        <div id="printButton">
+            <button onclick="printBill()">Print Bill</button>
+        </div>
+    </div>
+
+    <script>
+        function addItem() {
+            // Get form values
+            var itemName = document.getElementById('itemName').value;
+            var quantity = parseInt(document.getElementById('quantity').value);
+            var pricePerUnit = parseFloat(document.getElementById('pricePerUnit').value);
+
+            // Calculate total amount
+            var total = quantity * pricePerUnit;
+
+            // Create table row
+            var newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${itemName}</td>
+                <td>${quantity}</td>
+                <td>${pricePerUnit}</td>
+                <td>${total}</td>
+            `;
+
+            // Append row to table
+            document.getElementById('billTable').appendChild(newRow);
+
+            // Update total amount
+            updateTotalAmount(total);
+        }
+
+        function updateTotalAmount(amount) {
+            var totalAmountElement = document.getElementById('totalAmount');
+            var currentTotal = parseFloat(totalAmountElement.textContent || 0);
+            totalAmountElement.textContent = (currentTotal + amount).toFixed(2);
+        }
+
+        function printBill() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

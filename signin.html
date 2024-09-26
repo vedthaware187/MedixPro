@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Project Management System</h1>
+        <p>A simple and effective tool to organize and manage your projects efficiently</p>
+    </header>
+  <main>
+    <form id="registrationForm" class="registration-form" action="update.php" method="post">
+      <h2>User Registration</h2>
+      <div class="form-group">
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirmpassword">Confirm Password:</label>
+        <input type="password" id="confirmpassword" name="confirmpassword" required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Library Management System. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

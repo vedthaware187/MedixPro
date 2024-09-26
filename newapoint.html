@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Appointment</title>
+  <link rel="stylesheet" href="newapoint.css">
+  <style>
+    /* Button styling */
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color:#45a049 ;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Schedule New Appointment</h1>
+  </header>
+
+  <main>
+    <form id="appointment-form" class="appointment-form">
+      <div class="form-group">
+        <label for="patient-name">Patient Name:</label>
+        <input type="text" id="patient-name" name="patient-name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="doctor">Doctor:</label>
+        <select id="doctor" name="doctor" required>
+            <option value="Dr. Gupta (Cardiologist)">Dr. Gupta (Cardiologist)</option>
+            <option value="Dr. Patel (Orthopedic Surgeon)">Dr. Patel (Orthopedic Surgeon)</option>
+            <option value="Dr. Sharma (Gynecologist)">Dr. Sharma (Gynecologist)</option>
+            <option value="Dr. Reddy (Pediatrician)">Dr. Reddy (Pediatrician)</option>
+            <option value="Dr. Kumar (Neurologist)">Dr. Kumar (Neurologist)</option>
+            <option value="Dr. Singh (Dermatologist)">Dr. Singh (Dermatologist)</option>
+            <option value="Dr. Mishra (Oncologist)">Dr. Mishra (Oncologist)</option>
+            <option value="Dr. Tiwari (Endocrinologist)">Dr. Tiwari (Endocrinologist)</option>
+        </select>
+    </div>
+    
+
+      <div class="form-group">
+        <label for="appointment-date">Appointment Date:</label>
+        <input type="date" id="appointment-date" name="appointment-date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="appointment-time">Appointment Time:</label>
+        <input type="time" id="appointment-time" name="appointment-time" required>
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Reason for Appointment:</label>
+        <textarea id="reason" name="reason" required></textarea>
+      </div>
+
+      <button type="submit">Schedule Appointment</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Hospital Management System. All rights reserved.</p>
+    <a href="apoint.html" class="back-button">Go Back</a>
+  </footer>
+  <script src="newapoint1.js"></script>
+
+</body>
+</html>

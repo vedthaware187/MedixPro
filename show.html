@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Patient Record</title>
+  <link rel="stylesheet" href="styl8.css">
+  <style>
+    /* Button styling */
+    .back-button {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Show Patient Record</h1>
+  </header>
+
+  <main>
+    <section class="search-form">
+      <form id="searchForm" action="#" method="POST">
+        <label for="patient-name">Patient Name:</label>
+        <input type="text" id="patient-name" name="patient-name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    <section class="patient-details" id="patientDetails">
+      <!-- Patient details will be displayed here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Hospital Management System. All rights reserved.</p>
+    <a href="task.html" class="back-button">Go back</a>
+  </footer>
+
+
+  <script src="script4.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Inventory</title>
+  <link rel="stylesheet">
+  <style>
+ /* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* General styles */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  .back-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Main content styles */
+  main {
+    padding: 20px;
+  }
+  
+  /* Inventory list styles */
+  #inventoryList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .inventory-item {
+    background-color: #a6e3fd;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(255, 43, 43);
+    width: calc(33.33% - 40px); /* Three items per row */
+  }
+  
+  .inventory-item h3 {
+    margin-top: 0;
+  }
+  
+  .inventory-item p {
+    margin: 5px 0;
+  }
+  
+</style>
+</head>
+<body>
+  <header>
+    <h1>All Appointment</h1>
+  </header>
+  
+  <main id="inventoryList">
+    <!-- Inventory items will be displayed here -->
+  </main>
+
+  <footer>
+    <a href="apoint.html" class="back-button">Go back</a>
+  </footer>
+
+  <script src="showapoint1.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styles for the page layout */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f7f7f7; /* Set a light background color */
+}
+
+header {
+    background: linear-gradient(to bottom, #667db6, #0082c8);
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 2rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.feature {
+    flex-basis: calc(30% - 1rem);
+    text-align: center;
+    background-color: #ffffff; /* Change background color to white */
+    padding: 2rem; /* Increase padding for better spacing */
+    border-radius: 20px; /* Increase border radius for a rounded look */
+    box-shadow: 0 10px 20px rgba(88, 252, 0, 0.806); /* Enhance box shadow */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #f2f2f2; /* Lighten background color on hover */
+}
+
+.feature img {
+    width: 120px; /* Increase image size */
+    height: 120px; /* Increase image size */
+    border-radius: 50%;
+    border: 6px solid #0082c8; /* Thicker border with the brand color */
+    margin-bottom: 1rem; /* Add some space below the image */
+}
+
+.feature img:hover {
+    transform: scale(1.1);
+}
+
+.feature h2 {
+    font-size: 1.5rem; /* Increase font size for heading */
+    margin-bottom: 1rem; /* Add some space below the heading */
+}
+
+.feature p {
+    font-size: 1.2rem; /* Increase font size for paragraph */
+    color: #555; /* Darken text color */
+}
+
+.feature a {
+    display: block; /* Make the entire feature clickable */
+    text-decoration: none; /* Remove default underline */
+    color: #0082c8; /* Set link color */
+    font-weight: bold; /* Add emphasis to the link text */
+    transition: color 0.3s; /* Smooth transition for link color */
+}
+
+.feature a:hover {
+    color: #0056b3; /* Darken link color on hover */
+}
+
+.cta {
+    text-align: center;
+    background-color: #0082c8;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: #0056b3;
+    border: none;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #003d7f;
+}
+
+footer {
+    background: linear-gradient(to bottom, #667db6, #0082c8);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
